@@ -1,0 +1,29 @@
+{
+	"name": "Word Code Breaker",
+	"short_name": "WordCodeBreaker",
+	"description": "Guess the 5-letter word with EN/DE dictionaries, direct/indirect feedback, persistent highscores, and offline support.",
+	"start_url": "./",
+	"display": "standalone",
+	"background_color": "#102017",
+	"theme_color": "#163126",
+	"icons": [
+		{
+			"src": "img/icons/codebreaker32.png",
+			"sizes": "32x32",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "img/icons/codebreaker128.png",
+			"sizes": "128x128",
+			"type": "image/png",
+			"purpose": "any"
+		},
+		{
+			"src": "img/icons/codebreaker256.png",
+			"sizes": "256x256",
+			"type": "image/png",
+			"purpose": "any"
+		}
+	]
+}

@@ -21,9 +21,14 @@ VALID_WORD_PATTERN = re.compile(r'^[A-Za-z]{5}$')
 def main():
     """Main function to convert a text file to a list of 5-letter words."""
     parser = argparse.ArgumentParser(
-        description='Convert a text file to a list of 5-letter words.'
+        description="Convert a text file to a unique, "
+        "sorted list of 5-letter English words.",
+        epilog='Example: en_txt_to_5_letters.py input.txt'
     )
-    parser.add_argument('input_file', help='Input text file')
+    parser.add_argument(
+        'input_file',
+        help='Input text file to process (UTF-8 encoded)'
+    )
     args = parser.parse_args()
 
     words = []

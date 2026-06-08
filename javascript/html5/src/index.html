@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Play Word Code Breaker in your browser – guess the 5-letter word with EN/DE dictionaries, direct/indirect feedback, highscores, and offline support." />
+  <meta name="theme-color" content="#132238" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="AUTHOR" content="Oliver Merkel" />
+  <meta name="COPYRIGHT" content="Oliver Merkel" />
+  <title>Word Code Breaker</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header id="app-header" class="app-header">
+      <button id="btn-menu" class="icon-btn" type="button" aria-label="Open menu" aria-controls="side-panel">
+        <img src="img/icons/icon-bars.svg" alt="" />
+      </button>
+      <div class="header-copy">
+        <span id="app-header-title">Word Code Breaker</span>
+        <span id="app-header-subtitle" data-i18n="tagline">Guess the 5-letter word before the attempts run out.</span>
+      </div>
+      <span id="app-header-badge" class="header-badge" aria-live="polite">EN | 6</span>
+    </header>
+
+    <main id="app-content">
+      <section id="view-game" class="view view-game">
+        <div class="board-stage">
+          <div id="board" class="board-root" aria-live="polite"></div>
+          <div class="board-sidebar">
+            <aside id="game-highscores" class="game-highscores" aria-label="Current highscores" aria-live="polite">
+              <div class="highscore-item"><span id="label-score-today">Today</span><strong id="game-score-today">-</strong></div>
+              <div class="highscore-item"><span id="label-score-week">Week</span><strong id="game-score-week">-</strong></div>
+              <div class="highscore-item"><span id="label-score-month">Month</span><strong id="game-score-month">-</strong></div>
+            </aside>
+            <div id="game-status" class="game-status" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-rules" class="view view-page" hidden>
+        <h2 data-i18n="rulesTitle">Rules</h2>
+        <p data-i18n="rulesIntro">Guess the hidden 5-letter word. Each attempt must be a valid word from the dictionary.</p>
+
+        <details open>
+          <summary data-i18n="rulesGoalTitle">Goal</summary>
+          <p data-i18n="rulesGoalBody">Find the secret word within the configured attempt limit. Each guess must be a valid 5-letter word.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="rulesFeedbackTitle">Direct Feedback</summary>
+          <p data-i18n="rulesFeedbackBody">Green: letter is in the correct position. Yellow: letter is in the word but wrong position. Grey: letter is not in the word.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="rulesIndirectTitle">Indirect Feedback</summary>
+          <p data-i18n="rulesIndirectBody">Shows the total count of correctly placed and included (but misplaced) letters as a number.</p>
+        </details>
+
+        <details>
+          <summary data-i18n="rulesOptionsTitle">Configurable Options</summary>
+          <ul class="text-list">
+            <li data-i18n="rulesOptionsAttempts">Maximum attempts can be 6, 8, 10, or unlimited.</li>
+            <li data-i18n="rulesOptionsFeedback">Direct and indirect feedback can be toggled independently.</li>
+            <li data-i18n="rulesOptionsLanguage">Language: English uses a standard A-Z keyboard. German uses QWERTZ with Ä, Ö, Ü.</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary data-i18n="rulesOutcomeTitle">Outcomes</summary>
+          <p data-i18n="rulesOutcomeBody">Solving triggers a celebration animation. Running out of attempts reveals the secret word.</p>
+        </details>
+
+        <button class="btn btn-back" type="button" data-nav-back="game">Back</button>
+      </section>
+
+      <section id="view-options" class="view view-page" hidden>
+        <h2 data-i18n="optionsTitle">Options</h2>
+        <p class="hint-text" data-i18n="optionsHint">Changes are applied when you start a New Game. Language changes reload the word list.</p>
+
+        <form id="options-form" class="options-form">
+          <fieldset>
+            <legend data-i18n="optionsLanguage">Language</legend>
+            <label><input type="radio" name="language" value="en" checked />English</label>
+            <label><input type="radio" name="language" value="de" />Deutsch</label>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="optionsAttempts">Maximum Attempts</legend>
+            <label><input type="radio" name="maxAttempts" value="6" checked />6</label>
+            <label><input type="radio" name="maxAttempts" value="8" />8</label>
+            <label><input type="radio" name="maxAttempts" value="10" />10</label>
+            <label><input type="radio" name="maxAttempts" value="unlimited" /><span data-i18n="attemptsUnlimited">Unlimited</span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="optionsFeedback">Feedback</legend>
+            <label><input type="radio" name="feedbackMode" value="direct" /><span data-i18n="optionsDirectFeedback">Direct Feedback (color per letter)</span></label>
+            <label><input type="radio" name="feedbackMode" value="indirect" /><span data-i18n="optionsIndirectFeedback">Indirect Feedback (count badges)</span></label>
+            <label><input type="radio" name="feedbackMode" value="both" checked /><span data-i18n="optionsBothFeedback">Both (Direct and Indirect)</span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend data-i18n="optionsHighscores">Highscores</legend>
+            <div class="highscore-grid" aria-live="polite">
+              <p><span id="label-options-score-today">Today</span>: <strong id="score-today">-</strong></p>
+              <button class="btn btn-secondary btn-highscore-reset" id="btn-reset-score-today" type="button">Reset Today</button>
+              <p><span id="label-options-score-week">Week</span>: <strong id="score-week">-</strong></p>
+              <button class="btn btn-secondary btn-highscore-reset" id="btn-reset-score-week" type="button">Reset Week</button>
+              <p><span id="label-options-score-month">Month</span>: <strong id="score-month">-</strong></p>
+              <button class="btn btn-secondary btn-highscore-reset" id="btn-reset-score-month" type="button">Reset Month</button>
+            </div>
+          </fieldset>
+        </form>
+
+        <button class="btn" id="btn-options-ok" type="button">OK</button>
+      </section>
+
+      <section id="view-about" class="view view-page" hidden>
+        <h2 data-i18n="aboutTitle">About Word Code Breaker</h2>
+        <p data-i18n="aboutSummary">A browser-first deductive word puzzle with EN/DE dictionaries, persistent highscores, and offline-ready packaging.</p>
+        <h3>Legal</h3>
+        <figure class="diagram" style="float:right;margin-left:12px;width:35%;">
+          <img src="img/oliver_train.jpg" alt="Oliver Merkel" />
+          <figcaption>
+            Oliver Merkel,
+            <a rel="license noopener noreferrer" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">cc-by-nc-nd 4.0</a>.
+          </figcaption>
+        </figure>
+        <p>
+          Copyright &copy; 2026<br />
+          <em>@author</em> Oliver Merkel, Merkel(dot)Oliver(at)web(dot)de.
+        </p>
+        <p data-i18n="aboutLicense">All source code in this edition is released under the MIT License.</p>
+        <p data-i18n="aboutRuntime">This implementation uses no third-party runtime libraries.</p>
+        <button class="btn btn-back" type="button" data-nav-back="game">Back</button>
+      </section>
+    </main>
+  </div>
+
+  <div id="panel-overlay" hidden></div>
+
+  <nav id="side-panel" aria-label="Main navigation">
+    <p class="panel-title">Word Code Breaker</p>
+    <ul class="panel-nav">
+      <li><button id="btn-panel-close" type="button">Close</button></li>
+      <li class="panel-divider"></li>
+      <li><button id="nav-new" type="button">New Game</button></li>
+      <li class="panel-divider"></li>
+      <li><button id="nav-rules" type="button">Rules...</button></li>
+      <li><button id="nav-options" type="button">Options...</button></li>
+      <li><button id="nav-about" type="button">About...</button></li>
+    </ul>
+  </nav>
+
+  <script type="module" src="js/hmi.js"></script>
+  <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+</body>
+</html>

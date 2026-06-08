@@ -1,0 +1,22 @@
+{
+	"version": "1.0",
+	"name": "Word Code Breaker",
+	"description": "Guess the 5-letter word with EN/DE dictionaries, attempts options, and persistent highscores",
+	"launch_path": "/index.html",
+	"orientation": "landscape-primary",
+	"icons": {
+		"32": "/img/icons/codebreaker32.png",
+		"48": "/img/icons/codebreaker48.png",
+		"60": "/img/icons/codebreaker60.png",
+		"64": "/img/icons/codebreaker64.png",
+		"90": "/img/icons/codebreaker90.png",
+		"120": "/img/icons/codebreaker120.png",
+		"128": "/img/icons/codebreaker128.png",
+		"256": "/img/icons/codebreaker256.png"
+	},
+	"developer": {
+		"name": "Oliver Merkel",
+		"url": "https://github.com/OMerkel/word_code_breaker"
+	},
+	"installs_allowed_from": ["*"]
+}
