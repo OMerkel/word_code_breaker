@@ -214,12 +214,12 @@ stateDiagram-v2
 ```mermaid
 stateDiagram-v2
   [*] --> game
-  game --> rules   : menu → Rules
-  game --> options : menu → Options
-  game --> about   : menu → About
-  rules   --> game : Back / Close
-  options --> game : OK (restart engine)
-  about   --> game : Back / Close
+  game --> rules   : Rules
+  game --> options : Options
+  game --> about   : About
+  rules   --> game : Back
+  options --> game : OK
+  about   --> game : Back
 ```
 
 ---

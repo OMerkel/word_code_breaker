@@ -1552,6 +1552,7 @@ paris
 parke
 parks
 party
+pasch
 passe
 passt
 pasta
@@ -1616,6 +1617,7 @@ polen
 polin
 polio
 polis
+polka
 polle
 polos
 polyp
