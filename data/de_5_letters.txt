@@ -86,6 +86,7 @@ armer
 armes
 armut
 aroma
+arsch
 arsen
 arten
 artig
@@ -105,6 +106,7 @@ augur
 autor
 autos
 axiom
+ayran
 babel
 babys
 backe
@@ -228,6 +230,7 @@ buben
 buche
 buchs
 bucht
+buden
 buggy
 buhen
 bulle
@@ -392,6 +395,7 @@ dübel
 düfte
 dünne
 dürre
+dürüm
 düsen
 ebben
 ebene
@@ -612,6 +616,7 @@ fötus
 fügen
 fülle
 fürst
+fürze
 gabel
 gaben
 gaffe
@@ -742,6 +747,8 @@ halbe
 halde
 hallo
 halte
+halva
+halwa
 handy
 hanne
 hanoi
@@ -978,6 +985,8 @@ kater
 katze
 kauen
 kaufe
+kebab
+kebap
 kegel
 kehle
 kehre
@@ -1556,6 +1565,7 @@ pasch
 passe
 passt
 pasta
+paste
 paten
 pater
 patin
@@ -2078,6 +2088,7 @@ tirol
 tisch
 titan
 titel
+titte
 toast
 tobak
 toben
@@ -2191,6 +2202,7 @@ venen
 venus
 verse
 vespa
+veste
 video
 viehe
 viele

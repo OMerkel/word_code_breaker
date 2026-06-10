@@ -4,9 +4,9 @@ Word Code Breaker is a browser-based deductive word guessing game.
 Guess the hidden 5-letter word within the attempt limit using an English or German
 dictionary and optional direct (colour) and indirect (count) feedback.
 
-## Play Online NOW
+## Play Online
 
-- [Start game...](https://omerkel.github.io/word_code_breaker/javascript/html5/src/)
+- [Start game now...](https://omerkel.github.io/word_code_breaker/javascript/html5/src/)
 
 ## Features
 
