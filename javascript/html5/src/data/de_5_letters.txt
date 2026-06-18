@@ -701,6 +701,7 @@ grube
 gruft
 grund
 gräte
+größe
 grüne
 guano
 gucke
@@ -1073,7 +1074,6 @@ komik
 komma
 kongo
 konto
-kopfe
 kopie
 koran
 korbs
