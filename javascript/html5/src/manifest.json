@@ -1,6 +1,6 @@
 {
 	"name": "Word Code Breaker",
-	"short_name": "WordCodeBreaker",
+	"short_name": "Word Code Breaker",
 	"description": "Guess the 5-letter word with EN/DE dictionaries, direct/indirect feedback, persistent highscores, and offline support.",
 	"start_url": "./",
 	"display": "standalone",
