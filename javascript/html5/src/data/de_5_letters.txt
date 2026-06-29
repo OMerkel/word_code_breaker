@@ -637,6 +637,7 @@ geben
 geber
 gebet
 gebot
+gecko
 gegen
 gehen
 gehör
